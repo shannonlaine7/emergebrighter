@@ -1,37 +1,30 @@
 # Emerge Brighter Website
 
-A simple static landing page for **EmergeBrighter.com**, configured for free hosting with **GitHub + Cloudflare Workers Static Assets**.
+Simple static landing page for EmergeBrighter.com, hosted free with GitHub + Cloudflare Workers Static Assets.
 
-## Files
+## Structure
 
-- `index.html` — complete responsive landing page
-- `assets/workbook.webp` — workbook image
-- `favicon.svg` — browser icon
-- `404.html` — custom not-found page
-- `robots.txt` — search-engine instructions
-- `sitemap.xml` — one-page sitemap
-- `_headers` — Cloudflare security/cache headers
-- `wrangler.jsonc` — Cloudflare Workers configuration
-- `.assetsignore` — keeps deployment-only files out of the public site
+- `public/` — the only directory Cloudflare publishes
+  - `index.html`
+  - `404.html`
+  - `favicon.svg`
+  - `robots.txt`
+  - `sitemap.xml`
+  - `_headers`
+  - `assets/workbook.webp`
+- `wrangler.jsonc` — Cloudflare Worker configuration
+- `README.md` — repository documentation
 
-## GitHub
+## Cloudflare deployment
 
-Upload all files and the `assets` folder to the repository root and commit the changes.
+The repository is connected to Cloudflare Workers.
 
-## Cloudflare Workers settings
-
-Connect the GitHub repository from **Workers & Pages → Create application → Continue with GitHub**.
-
-- Project name: `emergebrighter`
-- Production branch: `main`
 - Build command: leave blank
-- Deploy command: use Cloudflare's default `npx wrangler deploy`
-- Static assets directory: configured automatically in `wrangler.jsonc`
+- Deploy command: `npx wrangler deploy`
+- Production branch: `main`
 
-Cloudflare will first deploy the site to a free `workers.dev` preview address. After the site is verified, add `emergebrighter.com` to Cloudflare and connect it as the custom domain.
+The `wrangler.jsonc` configuration intentionally points Cloudflare only to `./public`, which prevents Git metadata and deployment files from being published as website assets.
 
-## Workbook purchase link
+## Workbook purchase
 
-The purchase buttons point to:
-
-`https://www.amazon.com/dp/1733083723`
+The site links to the Emerge Brighter workbook on Amazon.
