@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "emergebrighter",
+  "compatibility_date": "2026-08-20",
+  "workers_dev": true,
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "404-page"
+  }
+}

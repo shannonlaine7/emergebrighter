@@ -1,41 +1,37 @@
 # Emerge Brighter Website
 
-A simple static landing page for **EmergeBrighter.com**, designed for free hosting with **GitHub + Cloudflare Pages**.
+A simple static landing page for **EmergeBrighter.com**, configured for free hosting with **GitHub + Cloudflare Workers Static Assets**.
 
 ## Files
 
 - `index.html` — complete responsive landing page
 - `assets/workbook.webp` — workbook image
 - `favicon.svg` — browser icon
-- `404.html` — simple custom not-found page
+- `404.html` — custom not-found page
 - `robots.txt` — search-engine instructions
 - `sitemap.xml` — one-page sitemap
-- `_headers` — basic Cloudflare Pages security/cache headers
+- `_headers` — Cloudflare security/cache headers
+- `wrangler.jsonc` — Cloudflare Workers configuration
+- `.assetsignore` — keeps deployment-only files out of the public site
 
-## Upload to GitHub
+## GitHub
 
-1. Open the GitHub repository you want to use for Emerge Brighter.
-2. Choose **Add file → Upload files**.
-3. Upload all of the files and the `assets` folder from this package.
-4. Commit the changes.
-5. In Cloudflare Pages, connect the repository and deploy it as a static site. No build command is required.
+Upload all files and the `assets` folder to the repository root and commit the changes.
 
-## Cloudflare Pages settings
+## Cloudflare Workers settings
 
-- Framework preset: **None**
+Connect the GitHub repository from **Workers & Pages → Create application → Continue with GitHub**.
+
+- Project name: `emergebrighter`
+- Production branch: `main`
 - Build command: leave blank
-- Build output directory: `/` or leave at the repository root, depending on the Pages setup screen
+- Deploy command: use Cloudflare's default `npx wrangler deploy`
+- Static assets directory: configured automatically in `wrangler.jsonc`
 
-## Domain
-
-The site is prepared for `https://emergebrighter.com/`. After the Pages preview looks correct, connect the custom domain in Cloudflare Pages and then complete the domain transfer/DNS cutover.
+Cloudflare will first deploy the site to a free `workers.dev` preview address. After the site is verified, add `emergebrighter.com` to Cloudflare and connect it as the custom domain.
 
 ## Workbook purchase link
 
-The buttons currently point to:
+The purchase buttons point to:
 
 `https://www.amazon.com/dp/1733083723`
-
-## Notes
-
-The site intentionally contains no blog, testimonials, contact form, newsletter signup, or coaching/services section. It uses no external fonts, frameworks, trackers, or paid services.
