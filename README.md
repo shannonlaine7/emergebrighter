@@ -28,3 +28,4 @@ The `wrangler.jsonc` configuration intentionally points Cloudflare only to `./pu
 ## Workbook purchase
 
 The site links to the Emerge Brighter workbook on Amazon.
+Deployment configured for Cloudflare Workers.
