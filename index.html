@@ -347,6 +347,17 @@
 
     footer p { margin: 0; }
 
+    footer a {
+      color: inherit;
+      text-decoration-color: rgba(109, 83, 96, 0.45);
+      text-underline-offset: 3px;
+    }
+
+    footer a:hover {
+      color: var(--ink);
+      text-decoration-color: currentColor;
+    }
+
     a:focus-visible,
     button:focus-visible {
       outline: 3px solid #6d5360;
@@ -456,7 +467,7 @@
 
   <footer>
     <p>© <span id="year">2026</span> Emerge Brighter. All rights reserved.</p>
-    <p>Strategic life planning for personal growth.</p>
+    <p><a href="https://shannonlaine.com/" aria-label="Visit ShannonLaine.com">ShannonLaine.com</a></p>
   </footer>
 
   <script>
